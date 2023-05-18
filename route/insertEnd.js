@@ -54,7 +54,6 @@ module.exports = (connection) => {
 
     router.post('/insertEnd', async (req, res) => {
         const { archerID, roundID, score, date, time } = req.body;
-        console.log(score)
         try{
             let scoreQuery = `INSERT INTO score (arrowOne, arrowTwo, arrowThree, arrowFour, arrowFive, arrowSix) 
             VALUES (${score[0]}, ${score[1]}, ${score[2]}, ${score[3]}, ${score[4]}, ${score[5]});`;
@@ -69,7 +68,7 @@ module.exports = (connection) => {
                 roundID,
                 date, 
                 time,
-                scoreID 
+                scoreID
                 )
             VALUES (
                 ${archerID},
@@ -84,6 +83,5 @@ module.exports = (connection) => {
             res.status(500).send(e);
         }
 })
-
     return router;
 };
